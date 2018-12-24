@@ -1,0 +1,67 @@
+/* Разные кавычки для разных языков (тег <q>) */
+body:lang(en) q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+body:lang(uk) q, body:lang(de) q { quotes: "\201E" "\201C"; }
+body:lang(ru) q, body:lang(fr) q { quotes: "\00AB" "\00BB" "\201E" "\201C"; }
+
+body {
+  background-color: rgb(247, 247, 247);
+}
+
+#menu {
+  background-color: #20232a !important;
+}
+
+.NavbarTopOffset {
+  height: 56px;
+}
+
+.Faculty, .Department, .Adviser {
+  margin: 0;
+}
+
+#resume ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.search td {
+  text-align: right;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .75em;
+}
+
+.figure, .figure-img {
+  max-width: 100%;
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="553px" height="223px" viewBox="-16 -16 537 207">
+  <path d="M 120 30 L 193.63 30" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <path d="M 198.88 30 L 191.88 33.5 L 193.63 30 L 191.88 26.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <rect x="0" y="0" width="120" height="60" rx="9" ry="9" fill="#f8cecc" stroke="#b85450" pointer-events="none"/>
+  <g transform="translate(27.5,18.5)">
+    <text x="32" y="21" fill="#000000" text-anchor="middle" font-size="20px" font-family="Tahoma">Actions</text>
+  </g>
+  <path d="M 320 30 L 393.63 30" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <path d="M 398.88 30 L 391.88 33.5 L 393.63 30 L 391.88 26.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <rect x="200" y="0" width="120" height="60" rx="9" ry="9" fill="#dae8fc" stroke="#6c8ebf" pointer-events="none"/>
+  <g transform="translate(218.5,18.5)">
+    <text x="41" y="21" fill="#000000" text-anchor="middle" font-size="20px" font-family="Tahoma">Reducers</text>
+  </g>
+  <path d="M 460 60 L 460 160 L 326.37 160" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <path d="M 321.12 160 L 328.12 156.5 L 326.37 160 L 328.12 163.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <g transform="translate(359.5,129.5)">
+    <text x="31" y="21" fill="#000000" text-anchor="middle" font-size="20px" font-family="Tahoma">update</text>
+  </g>
+  <rect x="400" y="0" width="120" height="60" rx="9" ry="9" fill="#d5e8d4" stroke="#82b366" pointer-events="none"/>
+  <g transform="translate(436.5,18.5)">
+    <text x="23" y="21" fill="#000000" text-anchor="middle" font-size="20px" font-family="Tahoma">Store</text>
+  </g>
+  <path d="M 200 160 L 60 160 L 60 66.37" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <path d="M 60 61.12 L 63.5 68.12 L 60 66.37 L 56.5 68.12 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+  <g transform="translate(93.5,129.5)">
+    <text x="37" y="21" fill="#000000" text-anchor="middle" font-size="20px" font-family="Tahoma">dispatch</text>
+  </g>
+  <rect x="200" y="130" width="120" height="60" rx="9" ry="9" fill="#e1d5e7" stroke="#9673a6" pointer-events="none"/>
+  <g transform="translate(238.5,148.5)">
+    <text x="21" y="21" fill="#000000" text-anchor="middle" font-size="20px" font-family="Tahoma">View</text>
+  </g>
+</svg>

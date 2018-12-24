@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Кубашевский Денис Вадимович - Создание шаблона современного веб-приложения на React</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+	<div class="NavbarTopOffset"></div>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-xl navbar-dark bg-primary fixed-top" id="menu">
+			<a class="navbar-brand" href="/" target="_blank" title="Перейти на портал магистров ДонНТУ">Портал магистров</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключить меню">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mx-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="../index.htm">Резюме</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../bio/index.htm">Биография</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../diss/index.htm">Реферат</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../library/index.htm">Библиотека</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../links/index.htm">Ссылки</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../links/zvit.htm">Отчёт о поиске</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="../ind/index.htm">Индивидуальный раздел</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="http://donntu.org" target="_blank" title="Перейти на сайт ДонНТУ">ДонНТУ</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<header class="card shadow my-4" id="header">
+			<div class="card-body">
+				<div class="media">
+					<div class="mr-3" id="photomag">
+						<a href="../kubashevskiy_big.jpg">
+							<img src="../photo.jpg" width="180" height="240" title="Магистр ДонНТУ Кубашевский Денис Вадимович" alt="Магистр ДонНТУ Кубашевский Денис Вадимович">
+						</a>
+					</div>
+					<div class="media-body" id="headertext">
+						<h2 class="FullName">Кубашевский Денис Вадимович</h2>
+						<h5 class="Faculty">Факультет компьютерных наук и технологий</h5>
+						<h5 class="Department">Кафедра программной инженерии</h5>
+						<h5 class="Speciality">Специальность <q>Программная инженерия</q></h5>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="card shadow my-4" id="middleblock">
+			<div class="card-body">
+				<div id="maintext">
+					<h1 class="text-center">Создание шаблона современного веб-приложения на React</h1>
+					<h2>Содержание</h2>
+					<ul class="list-unstyled">
+						<li><a href="#spa">Одностраничные приложения (SPA)</a></li>
+						<li><a href="#react">React</a></li>
+						<li><a href="#redux">Redux</a></li>
+						<li><a href="#template">Файловая структура и архитектура шаблона веб-приложения</a></li>
+						<li><a href="#links">Ссылки</a></li>
+					</ul>
+					<p>
+						В настоящее время набирают популярность одностраничные веб-приложения. Веб-сайты становятся веб-приложениями
+						и напоминают обычные настольные (Desktop) приложения. Наиболее распространёнными инструментами разработки
+						одностраничных веб-приложений являются:
+						<ul>
+							<li><a href="https://angular.io/">фреймворк Angular</a></li>
+							<li><a href="https://reactjs.org/">библиотека React</a></li>
+							<li><a href="https://vuejs.org/">фреймворк Vue</a></li>
+						</ul>
+					</p>
+					<p>
+						В данной статье я хочу поделиться собственным опытом разработки одностраничного веб-приложения и дать советы
+						начинающим React-разработчикам. Ранее на Портале магистров ДонНТУ тема разработки современных веб-приложений
+						была освещена Жигаревым Михаилом Юрьевичем <a href="#link-1">[1]</a>.
+					</p>
+					<p>
+						Так сложилось, что из этих трёх инструментов впервые мне довелось работать
+						именно с React. В течении года ежедневной работы с React я изучал лучшие практики, подходы, методы
+						разработки, пытался придумать грамотную для своих целей архитектуру приложения, оптимизировать затраты на
+						создание нового типичного проекта веб-приложения на React. Теперь пришло время преобразовать накопленные
+						знания в шаблон одностраничного React-приложения, который можно будет использовать при создании нового
+						типичного проекта. Такой подход сэкономит огромное количество ценного времени.
+					</p>
+					<section id="spa">
+						<h2>Одностраничные приложения (SPA)</h2>
+						<p>
+							Одностраничное приложение (Single Page Application) — это веб-сайт, который перерисовывает своё содержимое
+							в ответ на действие пользователя (например, переход по ссылке) без осуществления запроса на сервер для
+							получения новой HTML-страницы <a href="#link-2">[2]</a>.
+						</p>
+						<p>
+							Благодаря тому, что после каждого действия пользователя на веб-странице нет необходимости ждать ответа от
+							сервера, время ожидания пользователя значительно сокращается и это способствует росту числа пользователей.
+						</p>
+					</section>
+					<section id="react">
+						<h2>React</h2>
+						<p>
+							React — JavaScript-библиотека с открытым исходным кодом для разработки пользовательских
+							интерфейсов <a href="#link-3">[3]</a>. С использованием React создавать интерактивные пользовательские
+							интерфейсы становится значительно проще. Нужно всего лишь проектировать простые представления (view) для
+							каждого состояния в веб-приложении и React будет эффективно обновлять и отрисовывать только те компоненты,
+							данные которых изменились.
+						</p>
+						<p>
+							Главной особенностью React является высокая производительность, которая достигается благодаря концепции
+							виртуального DOM. Как известно, одной из основных причин низкой производительности веб-приложений
+							является частое применение дорогостоящих по времени операций над <a href="#link-4">деревом DOM [4]</a>.
+							Виртуальный DOM (VDOM) хранит представление пользовательского интерфейса (UI) в памяти, накапливает
+							изменения и синхронизирует их с настоящим DOM оптимальным образом с помощью библиотеки
+							ReactDOM <a href="#link-5">[5]</a>.
+						</p>
+					</section>
+					<section id="redux">
+						<h2>Redux</h2>
+						<p>
+							Redux — JavaScript-библиотека с открытым исходным кодом для управления состоянием
+							приложения <a href="#link-6">[6]</a>. Redux позволяет значительно упростить обновление состояния в
+							React-приложении, когда, например, нужно обмениваться некоторыми данными между глубоко вложенным дочерним
+							компонентом и родительским компонентом первого уровня. На рисунке 1 показан поток данных веб-приложения,
+							который организовывает Redux.
+						</p>
+						<div class="text-center">
+							<figure class="figure">
+								<img class="figure-img" src="images/redux_flow.svg" alt="Однонаправленный поток данных Redux">
+								<figcaption class="figure-caption">Рисунок 1 – Однонаправленный поток данных Redux</figcaption>
+							</figure>
+						</div>
+						<p>
+							Компонент (view, представление) отправляет (dispatch) действие (action). На определённое действие
+							реагирует соответствующий редьюсер (reducer), который изменяет глобальное состояние (store). После
+							изменения состояния подписанные на обновления компоненты реагируют на новые данные и перерисовывают себя.
+						</p>
+					</section>
+					<section id="template">
+						<h2>Файловая структура и архитектура шаблона веб-приложения</h2>
+						<p>
+							Шаблон основан на коде, который генерирует CLI-инструмент Create React App v2 <a href="#link-7">[7]</a>.
+							В шаблоне применяются следующие пакеты:
+						</p>
+						<ul>
+							<li><a href="https://material-ui.com/">Material-UI</a> — UI-фреймворк</li>
+							<li><a href="https://github.com/axios/axios">axios</a> — HTTP-клиент на основе <a href="https://learn.javascript.ru/promise">Promise</a></li>
+							<li><a href="https://github.com/sass/node-sass">node-sass</a> — поддержка <a href="https://sass-lang.com/">SASS</a></li>
+							<li><a href="https://necolas.github.io/normalize.css/">Normalize.css</a> — устраняет различия в стандартных CSS-стилях между браузерами</li>
+							<li><a href="https://github.com/paularmstrong/normalizr">normalizr</a> — выполняет нормализацию вложенных JSON-объектов по заданной схеме</li>
+							<li><a href="http://gaearon.github.io/react-hot-loader/">React Hot Loader</a> — обеспечивает <q>живую разработку</q> (live-coding), после изменения кода в браузере автоматически обновляются только изменённые компоненты, причём состояние компонентов сохраняется</li>
+							<li><a href="https://reacttraining.com/react-router/">React Router</a> — обеспечивает маршрутизацию</li>
+							<li><a href="https://redux.js.org/">Redux</a> — управляет состоянием приложения</li>
+							<li><a href="https://github.com/LogRocket/redux-logger">Logger for Redux</a> — обеспечивает логирование действий и состояния Redux</li>
+							<li><a href="https://github.com/reduxjs/redux-thunk">Redux Thunk</a> — позволяет реализовать асинхронную отправку действий Redux</li>
+							<li><a href="https://github.com/reduxjs/reselect">Reselect</a> — позволяет применять мемоизацию для селекторов состояния Redux</li>
+						</ul>
+						<p>
+							На рисунке 2 показана файловая структура шаблона.
+						</p>
+						<div class="text-center">
+							<figure class="figure">
+								<img class="figure-img" src="images/file_structure.png" alt="Файловая структура шаблона">
+								<figcaption class="figure-caption">Рисунок 2 – Файловая структура шаблона</figcaption>
+							</figure>
+						</div>
+						<p>
+							В папке <b>actions</b> находятся действия Redux. Пример типичного действия, которое выполняет API-запрос:
+						</p>
+						<pre class="mx-5">
+							<code>
+export const login = (email, password) => {
+  const request = () => ({
+    type: ActionTypes.LOGIN__REQUEST,
+    email,
+  })
+  const success = (email) => ({
+    type: ActionTypes.LOGIN__SUCCESS,
+    email,
+  })
+  const failure = (error) => ({
+    type: ActionTypes.LOGIN__FAILURE,
+    error,
+  })
+
+  return async (dispatch) => {
+    dispatch(request())
+
+    let result = null
+
+    try {
+      const response = await accountApi.login(email, password)
+      result = response.data
+
+      localStorage.setItem('email', email)
+
+      dispatch(success(email))
+    } catch (error) {
+      dispatch(failure(error))
+      dispatch(alertActions.error(error))
+    }
+
+    return result
+  }
+}
+							</code>
+						</pre>
+						<p>
+							Каждое действие включает в себя отправку трёх простейших действий Redux:
+							<span class="text-primary"><b>REQUEST</b></span>, <span class="text-success"><b>SUCCESS</b></span>,
+							<span class="text-danger"><b>FAILURE</b></span>. Такое разделение обеспечивает гибкое поведение, при
+							котором можно отдельно обработать момент начала запроса к серверу и успешного ответа или ошибки запроса.
+						</p>
+						<p>
+							В папке <b>api</b> содержатся функции отправки API-запросов, например:
+						</p>
+						<pre class="mx-5">
+							<code>
+export const login = (email, password) => {
+  return axios.post(`/api/auth/login`, {
+    email,
+    password,
+  })
+}
+							</code>
+						</pre>
+						<p>
+							В папке <b>components</b> находятся React-компоненты. Благодаря нативной поддержке языка SASS в
+							Create React App v2, теперь можно подключать *.sass-файлы напрямую из *.jsx-файла компонента:
+							<code>import './MyComponent.sass'</code>.
+						</p>
+						<p>
+							В папке <b>reducers</b> находятся функции-редьюсеры, которые изменяют данные состояния на основе данных,
+							передаваемых действиями. Пример редьюсера <code>entities.js</code>, который содержит нормализованные
+							объекты:
+						</p>
+						<pre class="mx-5">
+							<code>
+import * as ActionTypes from 'actions/ActionTypes'
+import * as models from 'models'
+import {normalize} from 'normalizr'
+import merge from 'lodash/merge'
+
+
+const initialState = {
+  users: {},
+}
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.LIST_USER__SUCCESS: {
+      const {entities} = normalize(action.data, {users: [models.user]})
+
+      return merge({}, state, entities)
+    }
+    case ActionTypes.LOGOUT__SUCCESS:
+      return initialState
+    default:
+      return state
+  }
+}
+							</code>
+						</pre>
+						<p>
+							Благодаря нормализации объектов решается проблема обновления содержимого объекта. Без нормализации
+							пришлось бы искать все вхождения данного объекта по всему состоянию приложения. С нормализацией же в
+							части состояния <code>state.entities</code> хранится карта объектов (map), где ключом является id объекта,
+							а значением является сам объект. В остальных частях состояния хранятся лишь ссылки на объекты, то есть id
+							объекта.
+						</p>
+						<p>
+							Причём даже с учётом нормализации необходимо позаботиться о правильном обновлении состояния
+							<code>entities</code>. Предположим, что в результате действий пользователя в
+							<code>state.entities.users[id]</code> хранится объект пользователя <code>user</code>, а в его поле
+							<code>user.photos</code> содержится список фото данного пользователя и список данных фото отображается на
+							веб-странице. Если в данный момент времени выполняется запрос <code>GET /user/:id</code> и сервер
+							вернёт набор полей, среди которых не будет поля <code>photos</code>. Объект сущности сохраняется в
+							<code>state.entities.users[id]</code> и, получается, поле <code>photos</code> исчезает.
+						</p>
+						<p>
+							Для того, чтобы исправить этот недостаток, необходимо не просто перезаписывать объекты в <b>entities</b>,
+							а выполнять глубокое слияние (deep merge). Именно для этого я использую функцию <code>merge</code>
+							из библиотеки <b>lodash</b>.
+						</p>
+						<p>
+							В папке <b>routers</b> находятся такие же обычные Реакт-компоненты, но они содержат маршруты (Route),
+							которые связывают пути URL с отображаемыми компонентами. Кроме того, файл
+							<code>routers/PrivateRoute.jsx</code> представляет собой аналог обычного Route, но PrivateRoute выполняет
+							закрывает целевой компонент от неаутентифицированного пользователя (гостя) и выполняет переадресацию на
+							страницу входа. Причём делает это таким образом, что после успешной аутентификации выполняется переход на
+							исходную страницу.
+						</p>
+						<p>
+							В последней папке <b>selectors</b> находятся селекторы данных состояния.
+						</p>
+						<p>
+							В файле <code>models.js</code> находятся определения схем, которые используются при нормализации и
+							денормализации entities.
+						</p>
+						<p>
+							В файле <code>store.js</code> осуществляется настройка хранилища состояния Redux, назначаются мидлверы
+							logger и thunk, а также настраивается горячая замена (hot module replacement) для редьюсеров.
+						</p>
+						<p>
+							В файле <code>themes.js</code> находятся определения тем дизайна пользовательского интерфейса для
+							Material-UI.
+						</p>
+						<p>
+							В файле <code>types.js</code> содержатся определения типов для PropTypes.
+						</p>
+						<p>
+							Характерной особенностью данного шаблона также является использование абсолютных путей для импорта
+							компонентов и файлов. Это избавляет от проблемы писать
+							<code>import MyComponent from '../../../../../../../../../../../../../../../../../../MyComponent'</code>
+							при достаточно глубокой вложенности компонентов. Вместо этого достаточно будет написать, например,
+							<code>import MyComponent from 'components/MyComponent'</code>.
+							Базовый путь задаётся в файле <code>.env</code> через переменную окружения <b>NODE_PATH</b>:
+							<code>NODE_PATH=src</code>.
+						</p>
+						<p>
+							Также в шаблоне применяется кастомизация конфигурации <a href="https://webpack.js.org/">Webpack</a>
+							без выполнения eject (отсоединения от Create React App). Это возможно благодаря использованию пакета
+							<a href="https://github.com/timarney/react-app-rewired">react-app-rewired</a>. При его использовании в
+							файле <code>config-overrides.js</code> выполняется изменение текущей конфигурации Webpack. В данном
+							шаблоне такой способ применяется для использования React Hot Loader.
+						</p>
+						<p>
+							На момент написания статьи последней версией данного шаблона является
+							<a href="https://github.com/Dehax/react-spa-template/releases/tag/v1.0.0">v1.0.0</a>. Шаблон постоянно
+							обновляется и совершенствуется, поэтому посмотреть исходники или скачать последнюю версию данного шаблона
+							можно на GitHub <a href="#link8">[8]</a>.
+						</p>
+					</section>
+					<section id="links">
+						<h2>Ссылки</h2>
+						<ol>
+							<li id="link-1"><a href="/2017/fkita/zhyhariev/index.htm#/ind">Проектирование и разработка современных веб-приложений, Жигарев М.Ю.</a></li>
+							<li id="link-2"><a href="https://medium.com/@pshrmn/demystifying-single-page-applications-3068d0555d46">How Single-Page Applications Work, Paul Sherman</a></li>
+							<li id="link-3"><a href="https://reactjs.org/">React</a></li>
+							<li id="link-4"><a href="https://learn.javascript.ru/dom-nodes">Дерево DOM, JAVASCRIPT.RU</a></li>
+							<li id="link-5"><a href="https://reactjs.org/docs/faq-internals.html">Virtual DOM and Internals, React</a></li>
+							<li id="link-6"><a href="https://redux.js.org/">Redux</a></li>
+							<li id="link-7"><a href="https://facebook.github.io/create-react-app/">Create React App</a></li>
+							<li id="link-8"><a href="https://github.com/Dehax/react-spa-template">Исходный код шаблона</a></li>
+							<li id="link-9"><a href="https://iamakulov.com/talks/redux-in-real-life/">Редакс в реальной жизни, Иван Акулов</a></li>
+						</ol>
+					</section>
+				</div> <!-- maintext -->
+			</div>
+		</main>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
